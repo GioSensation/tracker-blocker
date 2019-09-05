@@ -1,0 +1,10 @@
+{
+  "extName": {
+    "message": "Tracker Blocker! by Emanuele Feliziani",
+    "description": "Name of the extension"
+  },
+  "extDescription": {
+    "message": "A tracker blocker created by Emanuele Feliziani @gravida.pro",
+    "description": "Description of the extension to show in the browser extension summary page"
+  }
+}

@@ -1,0 +1,12 @@
+# folders
+/.idea
+/.vscode
+/.scannerwork
+/dist
+/node_modules
+/coverage
+
+# files
+*.log
+*.iml
+.DS_Store
