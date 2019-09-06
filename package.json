@@ -1,0 +1,22 @@
+{
+  "name": "tracker-blocker",
+  "version": "0.0.1",
+  "description": "A tracker blocker created by Emanuele Feliziani",
+  "browser": "dist/background.js",
+  "main": "src/bg/background.js",
+  "dependencies": {
+    "tldjs": "^2.3.1"
+  },
+  "devDependencies": {
+    "rollup": "^1.20.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Emanuele Feliziani",
+  "license": "ISC"
+}
