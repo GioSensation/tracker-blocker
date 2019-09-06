@@ -1,5 +1,5 @@
 import {trackerArray, trackerSet} from '../static/data';
-import {getDomain} from 'tldjs';
+import tldjs from 'tldjs';
 
 /**
  * Given a url, returns a string formatted as our tracker array
@@ -10,7 +10,7 @@ import {getDomain} from 'tldjs';
 const parseUrl = url => {
   // we extract the hostname to increase tldjs' performance: https://github.com/oncletom/tld.js#performances
   const {hostname} = new URL(url);
-  return `*://*.${getDomain(hostname)}/*`;
+  return `*://*.${tldjs.getDomain(hostname)}/*`;
 };
 
 chrome.webRequest.onBeforeRequest.addListener(
