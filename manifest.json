@@ -9,6 +9,16 @@
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
+  "chrome_settings_overrides": {
+    "homepage": "https://duckduckgo.com",
+    "search_provider": {
+      "prepopulated_id": 92,
+      "search_url": "https://duckduckgo.com/?q={searchTerms}&t=emanuelefeliziani",
+      "suggest_url": "https://duckduckgo.com/ac/?q={searchTerms}&type=list",
+      "is_default": true
+    },
+    "startup_pages": ["https://duckduckgo.com"]
+  },
   "default_locale": "en",
   "background": {
     "scripts": [
