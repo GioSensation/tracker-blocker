@@ -10,10 +10,11 @@ export default [
     output: {
       name: 'background',
       file: pkg.browser,
-      format: 'umd'
+      format: 'umd',
+      globals: {url: 'url'}
     },
     plugins: [
-      resolve(), // so Rollup can find `ms`
+      resolve({preferBuiltins: true}), // so Rollup can find `ms`
       commonjs(), // so Rollup can convert `ms` to an ES module
       json({
         // All JSON files will be parsed by default,
