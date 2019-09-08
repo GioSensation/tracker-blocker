@@ -4,6 +4,9 @@ const COLOR_MAP = {
   orange: '#db702e'
 };
 
+const PLURAL_RULES = new Intl.PluralRules();
+
 export {
   COLOR_MAP,
+  PLURAL_RULES
 }

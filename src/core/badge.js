@@ -9,6 +9,7 @@ const updateBadge = tabId => {
   const count = blockedStore.getString(tabId);
   chrome.browserAction.setBadgeText({text: count, tabId});
   chrome.browserAction.setBadgeBackgroundColor({color: getBadgeColor(count), tabId});
+  chrome.browserAction.setTitle({title: getBadgeTitle(count), tabId});
 };
 
 export {updateBadge};

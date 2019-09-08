@@ -1,5 +1,5 @@
 import tldjs from 'tldjs';
-import {COLOR_MAP} from '../static/constants';
+import {COLOR_MAP, PLURAL_RULES} from '../static/constants';
 
 /**
  * Given a url, returns a string formatted as our tracker array
@@ -25,7 +25,16 @@ const getBadgeColor = count => {
   return COLOR_MAP[color];
 };
 
+/**
+ * Returns a localised string that respects plural rules, ie: '3 trackers blocked'
+ * @param {string} count
+ * @returns {string}
+ */
+const getBadgeTitle = count =>
+  `${count} ${chrome.i18n.getMessage(`badgeTitle_${PLURAL_RULES.select(+count)}`)}`;
+
 export {
   parseUrl,
   getBadgeColor,
+  getBadgeTitle,
 };
