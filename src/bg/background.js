@@ -1,4 +1,4 @@
-import {parseUrl} from '../core/core';
+import {parseUrl} from '../utils/utils';
 import {trackerArray, trackerSet} from '../static/data';
 import blockedStore from '../core/BlockedStore';
 
