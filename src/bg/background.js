@@ -1,3 +1,4 @@
+import {updateBadge} from '../core/badge';
 import {parseUrl} from '../utils/utils';
 import {trackerArray, trackerSet} from '../static/data';
 import blockedStore from '../core/BlockedStore';
@@ -8,7 +9,7 @@ chrome.webRequest.onBeforeRequest.addListener(
     // Do not block if we are on a tracker's own page, such as Google or Facebook
     if (initiator && !trackerSet.has(parseUrl(initiator))) {
       blockedStore.increase(tabId);
-      chrome.tabs.get(tabId, ({active}) => active && updateBadge(tabId));
+      updateBadge(tabId);
       return {cancel: true};
     }
     return {};
@@ -28,7 +29,3 @@ chrome.webNavigation.onBeforeNavigate.addListener(({parentFrameId, tabId}) => {
 
 // Show the appropriate badge counter when switching to a new tab
 chrome.tabs.onActivated.addListener(({tabId}) => updateBadge(tabId));
-
-const updateBadge = tabId => {
-  chrome.browserAction.setBadgeText({text: blockedStore.getString(tabId)});
-};
