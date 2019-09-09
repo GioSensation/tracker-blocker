@@ -13,7 +13,7 @@ const trackerArray = [
   '*://*.adnxs.com/*',
   '*://*.twitter.com/*',
   '*://*.fbcdn.net/*',
-  '*://*.ajax.googleapis.com/*',
+  // '*://*.ajax.googleapis.com/*', // blocking this breaks many websites
   '*://*.yahoo.com/*',
   '*://*.rubiconproject.com/*',
   '*://*.openx.net/*',
