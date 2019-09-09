@@ -4,6 +4,7 @@ const COLOR_MAP = {
   orange: '#db702e'
 };
 
+// Use the Intl API to determine plural rules for translations (we use the default browser language)
 const PLURAL_RULES = new Intl.PluralRules();
 
 export {
