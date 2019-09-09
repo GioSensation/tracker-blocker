@@ -31,7 +31,6 @@
     "default_title": "__MSG_badgeTitleDefault__"
   },
   "permissions": [
-    "tabs",
     "webNavigation",
     "webRequest",
     "webRequestBlocking",
