@@ -9,7 +9,10 @@ chrome.webRequest.onBeforeRequest.addListener(
     // Do not block if we are on a tracker's own page, such as Google or Facebook
     if (initiator && !trackerSet.has(parseUrl(initiator))) {
       blockedStore.increase(tabId);
-      updateBadge(tabId);
+      chrome.tabs.get(tabId, ({status}) => {
+        // We only update the badge here if the tab is loaded, otherwise we wait for the tab to finish loading
+        if (status === 'complete') updateBadge(tabId);
+      });
       return {cancel: true};
     }
     return {};
@@ -18,12 +21,18 @@ chrome.webRequest.onBeforeRequest.addListener(
   ['blocking']
 );
 
+// Update the badge when the page has finished loading
+chrome.tabs.onUpdated.addListener((tabId, changeInfo) => {
+  if (changeInfo.status === 'complete') {
+    updateBadge(tabId);
+  }
+});
+
 // Reset counter when navigating to a new page
 chrome.webNavigation.onBeforeNavigate.addListener(({parentFrameId, tabId}) => {
   // Reset only if top frame (iFrame navigation does not reset the counter)
   if (parentFrameId < 0) {
     blockedStore.reset(tabId);
-    updateBadge(tabId);
   }
 });
 
