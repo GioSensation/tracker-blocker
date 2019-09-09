@@ -36,6 +36,16 @@ class BlockedStore {
     this.blockedMap[tabId] = 0;
     return this;
   }
+
+  /**
+   * Remove a tabId from the map. Used to avoid memory leaks when a tab is closed.
+   * @param tabId
+   * @returns {BlockedStore}
+   */
+  remove(tabId) {
+    delete this.blockedMap[tabId];
+    return this;
+  }
 }
 
 // Only export the instance

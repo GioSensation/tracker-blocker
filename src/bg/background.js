@@ -27,5 +27,8 @@ chrome.webNavigation.onBeforeNavigate.addListener(({parentFrameId, tabId}) => {
   }
 });
 
+// Remove tab data from our store when the tab is closed to avoid memory leaks
+chrome.tabs.onRemoved.addListener(tabId => blockedStore.remove(tabId));
+
 // Show the appropriate badge counter when switching to a new tab
 chrome.tabs.onActivated.addListener(({tabId}) => updateBadge(tabId));
